@@ -1,0 +1,660 @@
+<!-- Team Neurostack -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NeuroStack Team Portfolio</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+    :root {
+      --primary: #7b4b2a;
+      --primary-dark: #5a341d;
+      --secondary: #f8f1eb;
+      --accent: #c89f7a;
+      --text: #2e221b;
+      --muted: #6d5a4d;
+      --white: #ffffff;
+      --card: #fffaf6;
+      --border: #e6d6c8;
+      --shadow: 0 10px 25px rgba(91, 52, 29, 0.12);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: var(--secondary);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      padding: 18px 8%;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: var(--shadow);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .logo-box {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-box img {
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      background: white;
+      object-fit: cover;
+      padding: 4px;
+    }
+
+    .logo-box h1 {
+      font-size: 1.2rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      font-size: 0.95rem;
+    }
+
+    .hero {
+      padding: 80px 8% 60px;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .hero h2 {
+      font-size: 2.6rem;
+      color: var(--primary-dark);
+      margin-bottom: 14px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      margin-bottom: 20px;
+      max-width: 700px;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+     .btn {
+      background: var(--primary);
+      color: var(--white);
+      padding: 12px 20px;
+      border: none;
+      text-decoration: none;
+      border-radius: 8px;
+      display: inline-block;
+      font-weight: bold;
+      transition: 0.3s ease;
+    }
+
+    .btn:hover {
+      background: var(--primary-dark);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+
+    .hero-card,
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      transition: transform 0.25s ease;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+    }
+
+     .hero-card ul {
+      padding-left: 18px;
+    }
+
+
+
+    .hero-card h3,
+    .card h3 {
+      color: var(--primary-dark);
+      margin-bottom: 10px;
+    }
+
+    section {
+      padding: 70px 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-title h2 {
+      color: var(--primary-dark);
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+
+    .section-title p {
+      color: var(--muted);
+      max-width: 780px;
+      margin: auto;
+    }
+
+    .grid-2,
+    .grid-3,
+    .projects-grid {
+      display: grid;
+      gap: 22px;
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .grid-3,
+    .projects-grid {
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+
+    .tag {
+      display: inline-block;
+      background: #f1dfd2;
+      color: var(--primary-dark);
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      margin: 4px 6px 0 0;
+    }
+
+    .project-card .week {
+      font-size: 0.9rem;
+      color: var(--primary);
+      font-weight: bold;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .project-card p {
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .timeline-tree {
+      position: relative;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px 0;
+    }
+
+    .timeline-tree::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--accent);
+      transform: translateX(-50%);
+    }
+
+    .timeline-item {
+      position: relative;
+      width: 50%;
+      padding: 10px 30px;
+      margin-bottom: 30px;
+    }
+
+    .timeline-item.left {
+      left: 0;
+      text-align: right;
+    }
+
+    .timeline-item.right {
+      left: 50%;
+      text-align: left;
+    }
+
+    .timeline-content {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .timeline-item::after {
+      content: "";
+      position: absolute;
+      top: 24px;
+      width: 16px;
+      height: 16px;
+      background: var(--primary);
+      border-radius: 50%;
+      z-index: 2;
+    }
+
+    .timeline-item.left::after {
+      right: -8px;
+    }
+
+    .timeline-item.right::after {
+      left: -8px;
+    }
+
+    .timeline-content h3 {
+      color: var(--primary-dark);
+      margin-bottom: 6px;
+      font-size: 1.05rem;
+    }
+
+    .timeline-content p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    form {
+      max-width: 700px;
+      margin: auto;
+      background: white;
+      padding: 28px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 14px;
+      border-radius: 10px;
+      border: 1px solid #d9c2b2;
+      font-size: 1rem;
+    }
+
+    form textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    footer {
+      background: var(--primary-dark);
+      color: white;
+      text-align: center;
+      padding: 22px;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h2 {
+        font-size: 2rem;
+      }
+
+      .timeline-tree::before {
+        left: 20px;
+      }
+
+      .timeline-item,
+      .timeline-item.left,
+      .timeline-item.right {
+        width: 100%;
+        left: 0;
+        text-align: left;
+        padding-left: 50px;
+        padding-right: 10px;
+      }
+
+      .timeline-item.left::after,
+      .timeline-item.right::after {
+        left: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <div class="logo-box">
+        <img src="neuro.png" alt="Demo logo">
+        <h1>NeuroStack Team Portfolio</h1>
+      </div>
+
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#team">Team</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Featured Projects</a>
+        <a href="#timeline">Journey</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div>
+      <h2>Our Full-Stack Development Journey with NeuroStack</h2>
+      <p>
+        This team portfolio presents our work, learning, and progress throughout the NeuroStack project.
+        It highlights our technical growth in full-stack development, secure system design, documentation,
+        database thinking, and project presentation.
+      </p>
+      <div class="btn-group">
+        <a href="#projects" class="btn">Explore Projects</a>
+        <a href="#contact" class="btn btn-outline">Contact Us</a>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <h3>What This Portfolio Covers</h3>
+      <ul>
+        <li>Team introduction and skills</li>
+        <li>Featured project work</li>
+        <li>Week-by-week learning journey</li>
+        <li>Full-stack project growth</li>
+        <li>Contact and collaboration details</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="section-title">
+      <h2>About NeuroStack</h2>
+      <p>
+        Our work throughout NeuroStack covered multiple areas of software engineering, including database architecture, authentication systems, technology stack planning, system optimization, and frontend portfolio development. Each deliverable was designed to simulate real-world development scenarios and strengthen our understanding of how full-stack applications are built from concept to implementation.
+
+The project also helped us develop practical skills in problem-solving, system thinking, UI/UX design, backend logic, and professional documentation. NeuroStack represents our technical growth, collaboration, and ability to design structured solutions for complex software challenges.
+      </p>
+    </div>
+  </section>
+
+  <section id="team">
+    <div class="section-title">
+      <h2>Meet the Team</h2>
+      <p>This portfolio represents the collaborative work of both team members.</p>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3>Ashelyclixon Nadar</h3>
+        <p>
+          Worked on documentation, project structure, deliverable planning, system understanding,
+          and overall portfolio development throughout the NeuroStack journey.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Divya Gattigolla</h3>
+        <p>
+          Contributed to project refinement, UI thinking, case study explanation, deliverable design,
+          and presentation-focused content for the NeuroStack project.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="section-title">
+      <h2>Our Skills & Tools</h2>
+      <p>
+        This section highlights the individual skill sets of both team members along with the shared tools
+        used during the project.
+      </p>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3>Divya Gattigolla – Skills</h3>
+        <span class="tag">HTML</span>
+        <span class="tag">CSS</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">Node.js</span>
+        <span class="tag">Express.js</span>
+        <span class="tag">Database Design</span>
+        <span class="tag">System Thinking</span>
+        <span class="tag">Documentation</span>
+      </div>
+
+      <div class="card">
+        <h3>Ashelyclixon Nadar – Skills</h3>
+        <span class="tag">UI/UX</span>
+        <span class="tag">Wireframing</span>
+        <span class="tag">React Basics</span>
+        <span class="tag">ERD Design</span>
+        <span class="tag">Presentation</span>
+        <span class="tag">Project Analysis</span>
+        <span class="tag">Content Structuring</span>
+        <span class="tag">System Flow Design</span>
+      </div>
+    </div>
+
+    <div style="margin-top: 24px;">
+      <div class="card">
+        <h3>Shared Tools</h3>
+        <span class="tag">GitHub</span>
+        <span class="tag">VS Code</span>
+        <span class="tag">MongoDB</span>
+        <span class="tag">Postman</span>
+        <span class="tag">Figma</span>
+        <span class="tag">Google Colab</span>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="projects">
+    <div class="section-title">
+      <h2>Featured Projects</h2>
+      <p>
+        These project cards highlight the most important work that contributed to our growth.
+        Clicking a card takes you to a separate page with detailed information about that project.
+      </p>
+    </div>
+
+    <div class="projects-grid">
+      
+
+      <div class="card project-card">
+        <span class="week">Week 9</span>
+        <h3>Database Schema & ERD Design</h3>
+        <p>
+          Structured database planning with entities, relationships, and system-level data organization.
+        </p>
+        <a class="btn" href="week9.html">View Details</a>
+      </div>
+
+      <div class="card project-card">
+        <span class="week">Week 10</span>
+        <h3>Technology Stack Recommendation</h3>
+        <p>
+          Selected and justified the right full-stack technologies for the NeuroStack application.
+        </p>
+        <a class="btn" href="week10.html">View Details</a>
+      </div>
+
+      <div class="card project-card">
+        <span class="week">Week 11</span>
+        <h3>Secure Login System Design</h3>
+        <p>
+          Designed a secure login system with MFA, session handling, ERD support, and security practices.
+        </p>
+        <a class="btn" href="week11.html">View Details</a>
+      </div>
+
+      <div class="card project-card">
+        <span class="week">Week 13</span>
+        <h3>Team Portfolio Website</h3>
+        <p>
+          Developed a team portfolio concept to present our work, skills, and project journey professionally.
+        </p>
+        <a class="btn" href="index.html">View Details</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="timeline">
+    <div class="section-title">
+      <h2>Our Learning Journey</h2>
+      <p>
+        A tree-style roadmap showing our weekly progress from Week 2 up to the current week.
+      </p>
+    </div>
+
+    <div class="timeline-tree">
+      <div class="timeline-item left">
+        <div class="timeline-content">
+          <h3>Week 2</h3>
+          <p>Started exploring full-stack development concepts and project direction.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item right">
+        <div class="timeline-content">
+          <h3>Week 3</h3>
+          <p>Learned about architectural thinking and how different system layers work together.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item left">
+        <div class="timeline-content">
+          <h3>Week 4</h3>
+          <p>Focused on implementation basics and understanding practical software workflows.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item right">
+        <div class="timeline-content">
+          <h3>Week 5</h3>
+          <p>Worked on data handling concepts and early database understanding.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item left">
+        <div class="timeline-content">
+          <h3>Week 6</h3>
+          <p>Strengthened presentation and project communication through structured deliverables.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item right">
+        <div class="timeline-content">
+          <h3>Week 7</h3>
+          <p>Built the Task Management System and improved practical system design thinking.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item left">
+        <div class="timeline-content">
+          <h3>Week 8</h3>
+          <p>Designed database schema, ERD, and relationships for structured data management.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item right">
+        <div class="timeline-content">
+          <h3>Week 9</h3>
+          <p>Continued refining technical understanding and project documentation quality.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item left">
+        <div class="timeline-content">
+          <h3>Week 10</h3>
+          <p>Recommended a full tech stack and justified choices with insights and trade-offs.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item right">
+        <div class="timeline-content">
+          <h3>Week 11</h3>
+          <p>Designed a secure login system with authentication flow, ERD, and best practices.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item left">
+        <div class="timeline-content">
+          <h3>Week 12</h3>
+          <p>Connected LinkedIn Learning outcomes to our real project growth in full-stack development.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item right">
+        <div class="timeline-content">
+          <h3>Week 13</h3>
+          <p>Launched the team portfolio concept to present our skills, projects, and value clearly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="section-title">
+      <h2>Contact Us</h2>
+      <p>
+        This contact form can later be connected to Formspree or EmailJS for real message handling.
+      </p>
+    </div>
+
+    <form onsubmit="submitForm(event)">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Your Message" required></textarea>
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2026 NeuroStack Team Portfolio | Created by Ashelyclixon & Divya Gattigolla</p>
+  </footer>
+
+  <script>
+    function submitForm(event) {
+      event.preventDefault();
+      alert("Demo contact form submitted. You can connect it later to Formspree or EmailJS.");
+    }
+  </script>
+</body>
+</html>

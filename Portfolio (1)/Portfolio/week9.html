@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 9 - Database Schema & ERD Design | NeuroStack</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+    :root {
+      --primary: #7b4b2a;
+      --primary-dark: #5a341d;
+      --secondary: #f8f1eb;
+      --accent: #c89f7a;
+      --text: #2e221b;
+      --muted: #6d5a4d;
+      --card: #fffaf6;
+      --border: #e6d6c8;
+      --shadow: 0 10px 25px rgba(91,52,29,0.12);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: var(--secondary);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      padding: 24px 8%;
+    }
+
+    .container {
+      max-width: 1150px;
+      margin: auto;
+      padding: 50px 8%;
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      background: var(--primary);
+      color: white;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-weight: bold;
+      margin-bottom: 24px;
+    }
+
+    .section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .section h2 {
+      color: var(--primary-dark);
+      margin-bottom: 12px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+      gap: 18px;
+      margin-top: 20px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px;
+    }
+
+    .card h3 {
+      color: var(--primary-dark);
+      margin-bottom: 8px;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .erd-box {
+    border: 2px dashed var(--accent);
+    padding: 25px;
+    text-align: center;
+    border-radius: 12px;
+    background: white;
+    margin-top: 18px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+   }
+   .erd-box img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px;
+   }
+
+    footer {
+      background: var(--primary-dark);
+      color: white;
+      text-align: center;
+      padding: 18px;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Week 9 – Database Schema & ERD Design</h1>
+  <p>Database modeling and relational design for the NeuroStack Patient Management System.</p>
+</header>
+
+<div class="container">
+
+  <a href="index.html" class="btn">← Back to Home</a>
+
+  <section class="section">
+    <h2>Project Overview</h2>
+    <p>
+      In Week 9, we designed the database structure for the NeuroStack Patient Management System.
+      The goal was to build a scalable and organized relational database that supports patient management,
+      doctor records, appointments, prescriptions, billing, and medical history.
+    </p>
+  </section>
+
+  <section class="section">
+    <h2>Core Entities Designed</h2>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Patients</h3>
+        <p>Stores patient details including personal and emergency contact information.</p>
+      </div>
+
+      <div class="card">
+        <h3>Doctors</h3>
+        <p>Stores doctor details, specialization, and department information.</p>
+      </div>
+
+      <div class="card">
+        <h3>Appointments</h3>
+        <p>Tracks patient-doctor appointments and visit scheduling.</p>
+      </div>
+
+      <div class="card">
+        <h3>Medical Records</h3>
+        <p>Stores diagnosis, treatment notes, and medical history.</p>
+      </div>
+
+      <div class="card">
+        <h3>Prescriptions</h3>
+        <p>Manages medication details, dosage, and prescription instructions.</p>
+      </div>
+
+      <div class="card">
+        <h3>Billing</h3>
+        <p>Handles payment records, billing status, and transaction details.</p>
+      </div>
+    </div>
+  </section>
+
+      <section class="section">
+      <h2>Relationships Between Entities</h2>
+      <ul class="relationship-list">
+        <li><strong>Patient → Appointment (One-to-Many):</strong> A patient can book many appointments, and each appointment belongs to one patient.</li>
+        <li><strong>Doctor → Appointment (One-to-Many):</strong> A doctor can attend many appointments, and each appointment is associated with one doctor.</li>
+        <li><strong>Patient → Medical Records (One-to-Many):</strong> A patient can have multiple medical records over time.</li>
+        <li><strong>Doctor → Medical Records (One-to-Many):</strong> A doctor can create multiple medical records.</li>
+        <li><strong>Patient → Prescriptions (One-to-Many):</strong> A patient can receive multiple prescriptions.</li>
+        <li><strong>Doctor → Prescriptions (One-to-Many):</strong> A doctor can issue multiple prescriptions.</li>
+        <li><strong>Appointment → Billing (One-to-One):</strong> Each appointment generates exactly one billing record.</li>
+        <li><strong>Patient → Billing (One-to-Many):</strong> A patient can have multiple billing records.</li>
+      </ul>
+    </section>
+
+  <section class="section">
+    <h2>Assumptions & Constraints</h2>
+    <ul>
+      <li>Each patient and doctor has a unique ID.</li>
+      <li>Appointments must reference valid patient and doctor records.</li>
+      <li>Billing records must be tied to valid appointments.</li>
+      <li>Billing amounts must always be positive.</li>
+      <li>Appointment dates should follow business validation rules.</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>ER Diagram</h2>
+    <p>
+      The ER Diagram visually represents the relationships between all core entities
+      and demonstrates how the database is structured.
+    </p>
+
+    <div class="erd-box">
+      <code><img src="ER.png" alt="ER Diagram"></code>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Future Enhancements</h2>
+    <ul>
+      <li>Add authentication tables for secure login integration.</li>
+      <li>Implement automated appointment reminders.</li>
+      <li>Store digital reports and uploaded medical documents.</li>
+      <li>Add analytics dashboard for hospital insights.</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>Key Learning</h2>
+    <p>
+      This deliverable helped us understand that a well-structured database is the foundation
+      of any scalable software system. It improved our understanding of entity relationships,
+      normalization, and real-world database planning.
+    </p>
+  </section>
+
+</div>
+
+<footer>
+  <p>© 2026 NeuroStack Team Portfolio | Week 9 Project Page</p>
+</footer>
+
+</body>
+</html>

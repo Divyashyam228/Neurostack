@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 10 - Technology Stack Recommendation | NeuroStack</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+    :root {
+      --primary: #7b4b2a;
+      --primary-dark: #5a341d;
+      --secondary: #f8f1eb;
+      --accent: #c89f7a;
+      --text: #2e221b;
+      --muted: #6d5a4d;
+      --white: #ffffff;
+      --card: #fffaf6;
+      --border: #e6d6c8;
+      --shadow: 0 10px 25px rgba(91, 52, 29, 0.12);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: var(--secondary);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: var(--white);
+      padding: 28px 8%;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+
+    header p {
+      max-width: 850px;
+      color: #f3e8df;
+    }
+
+    .container {
+      max-width: 1150px;
+      margin: auto;
+      padding: 50px 8%;
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      background: var(--primary);
+      color: white;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-weight: bold;
+      margin-bottom: 24px;
+      transition: 0.3s ease;
+    }
+
+    .btn:hover {
+      background: var(--primary-dark);
+    }
+
+    .section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      margin-bottom: 24px;
+    }
+
+    .section h2 {
+      color: var(--primary-dark);
+      margin-bottom: 12px;
+      font-size: 1.4rem;
+    }
+
+    .section p {
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px;
+    }
+
+    .card h3 {
+      color: var(--primary-dark);
+      margin-bottom: 8px;
+      font-size: 1.05rem;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #f1dfd2;
+      color: var(--primary-dark);
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      margin: 4px 6px 0 0;
+    }
+
+    ul {
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .flow-box {
+      border: 2px dashed var(--accent);
+    padding: 25px;
+    text-align: center;
+    border-radius: 12px;
+    background: white;
+    margin-top: 18px;
+    }
+
+    .flow-box img{
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px;
+   }
+
+    .example-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 16px;
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .example-table th,
+    .example-table td {
+      padding: 12px;
+      border: 1px solid var(--border);
+      text-align: left;
+    }
+
+    .example-table th {
+      background: #f1dfd2;
+      color: var(--primary-dark);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 18px;
+      margin-top: 16px;
+    }
+
+    footer {
+      text-align: center;
+      background: var(--primary-dark);
+      color: white;
+      padding: 20px;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Week 10 – Technology Stack Recommendation</h1>
+    <p>
+      This page presents our recommended technology stack for the NeuroStack brainwave monitoring
+      and analysis application, along with workflow explanation, sample insights, trade-offs,
+      optimization, and future scope.
+    </p>
+  </header>
+
+  <div class="container">
+    <a href="index.html" class="btn">← Back to Home</a>
+
+    <section class="section">
+      <h2>Project Overview</h2>
+      <p>
+        In Week 10, we focused on recommending a suitable technology stack for the NeuroStack
+        application. The goal was not just to list technologies, but to explain why each one
+        fits the system, how they work together, and how the overall solution supports
+        real-time brainwave monitoring and analysis.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>System Overview</h2>
+      <p>
+        The proposed system is a brainwave monitoring and analysis application designed to collect,
+        process, store, and visualize brainwave data. It aims to convert raw brainwave signals into
+        useful insights that can support doctors, researchers, and healthcare monitoring workflows.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Recommended Technology Stack</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Frontend</h3>
+          <p>React.js</p>
+          <span class="tag">Interactive UI</span>
+          <span class="tag">Dashboard</span>
+        </div>
+
+        <div class="card">
+          <h3>Backend</h3>
+          <p>Node.js + Express.js</p>
+          <span class="tag">API Handling</span>
+          <span class="tag">Real-time Data</span>
+        </div>
+
+        <div class="card">
+          <h3>Database</h3>
+          <p>MongoDB</p>
+          <span class="tag">Flexible Storage</span>
+          <span class="tag">Scalable Data</span>
+        </div>
+
+        <div class="card">
+          <h3>Analysis Layer</h3>
+          <p>Python</p>
+          <span class="tag">Data Analysis</span>
+          <span class="tag">Pattern Detection</span>
+        </div>
+
+        <div class="card">
+          <h3>Visualization</h3>
+          <p>Chart.js</p>
+          <span class="tag">Graphs</span>
+          <span class="tag">Trends</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Why We Chose This Stack</h2>
+      <p>
+        We selected this stack because it supports both technical performance and practical usability.
+        React.js helps create a modern and responsive dashboard, Node.js manages continuous incoming
+        data, MongoDB stores large and flexible brainwave datasets, Python handles analysis, and
+        Chart.js presents the results in a visual and understandable way.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>System Workflow</h2>
+      <p>
+        The workflow explains how raw brainwave input moves through the system and how each part of
+        the technology stack contributes to the final output.
+      </p>
+
+      <div class="flow-box">
+        <img src="week10.png" alt="Workflow Diagram">
+      </div>
+
+      <p style="margin-top: 16px;">
+        The system starts by collecting raw brainwave signals from an EEG device or sensor.
+        These signals are received by the backend, stored in the database, analyzed using Python,
+        and finally displayed on the dashboard as graphs and meaningful insights.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>AI-Generated Data Example</h2>
+      <p>
+        To demonstrate how the application could interpret brainwave data, we used a simple
+        high blood pressure example where higher beta values and lower alpha values indicate
+        increased stress and reduced relaxation.
+      </p>
+
+      <table class="example-table">
+        <thead>
+          <tr>
+            <th>Time</th>
+            <th>Alpha</th>
+            <th>Beta</th>
+            <th>Theta</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>10:00</td>
+            <td>8</td>
+            <td>30</td>
+            <td>5</td>
+          </tr>
+          <tr>
+            <td>10:01</td>
+            <td>7</td>
+            <td>32</td>
+            <td>4</td>
+          </tr>
+          <tr>
+            <td>10:02</td>
+            <td>6</td>
+            <td>35</td>
+            <td>3</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p style="margin-top: 14px;">
+        This pattern suggests that the person may be under stress. In a real application, the
+        system could convert this raw data into a simple insight for doctors or healthcare users.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Sample Insight</h2>
+      <p>
+        The observed brainwave data shows consistently high beta activity and low alpha levels,
+        indicating a stressed mental state with reduced relaxation. This kind of pattern may be
+        associated with high blood pressure and can help healthcare professionals monitor the
+        patient more effectively.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Trade-Offs</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>MongoDB</h3>
+          <p>
+            Chosen for flexibility and scalability, but it does not enforce strict relational
+            structure like traditional SQL databases.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Node.js</h3>
+          <p>
+            Works well for real-time data handling, but is not the best choice for heavy
+            analytical processing compared to Python.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>React.js</h3>
+          <p>
+            Provides a dynamic user interface, but requires more setup and component management
+            compared to simple static pages.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Optimization</h2>
+
+      <div class="two-col">
+        <div class="card">
+          <h3>Scenario 1: Fast Data Retrieval</h3>
+          <p>
+            If a doctor searches for patient data or brainwave history, the system should return
+            results quickly.
+          </p>
+          <p><strong>What we do:</strong> Use indexing on fields like patient_id and timestamp.</p>
+          <p>
+            This improves search speed and helps the system retrieve data without scanning
+            everything.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Scenario 2: Continuous Data Handling</h3>
+          <p>
+            If the system receives real-time brainwave updates from multiple patients, performance
+            should remain stable.
+          </p>
+          <p><strong>What we do:</strong> Process data in smaller chunks, separate analysis logic, and store only required data.</p>
+          <p>
+            This reduces overload and keeps the application responsive.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Insights for NeuroStack</h2>
+      <p>
+        This solution adds value to NeuroStack by enabling real-time monitoring, data-driven
+        interpretation, and better visualization of complex brainwave patterns. It supports
+        healthcare-focused decision-making while also providing a scalable foundation for future
+        research and product development.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Future Enhancements</h2>
+      <ul>
+        <li>Real-time anomaly detection for unusual brainwave activity</li>
+        <li>Integration with wearable EEG or health monitoring devices</li>
+        <li>Advanced AI models for trend prediction and pattern recognition</li>
+        <li>More secure and scalable data handling for medical environments</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Key Learning</h2>
+      <p>
+        This project helped us understand that choosing a technology stack is not only about
+        naming tools. It is about connecting each technology to the actual needs of the system,
+        thinking about trade-offs, and explaining how the full solution works in a practical way.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Conclusion</h2>
+      <p>
+        Overall, this technology stack provides a practical and scalable foundation for the
+        NeuroStack application. It supports real-time processing, flexible storage, meaningful
+        analysis, and clear visualization. More importantly, it shows how a full-stack solution
+        can turn complex brainwave data into understandable and useful insights.
+      </p>
+    </section>
+  </div>
+
+  <footer>
+    <p>© 2026 NeuroStack Team Portfolio | Week 10 Project Page</p>
+  </footer>
+
+</body>
+</html>
